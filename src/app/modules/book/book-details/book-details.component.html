@@ -1,0 +1,15 @@
+<!-- book-detail.component.html -->
+
+<div class="container" *ngIf="bookDetails">
+  <div class="book-details">
+    <div>
+      <h2>{{ bookDetails.bookName }}</h2>
+    </div>
+    <div> <button mat-raised-button color="primary" [routerLink]="[ '../']">Back</button>
+    </div>
+  </div>
+  <p><strong>Author:</strong> {{ bookDetails.author }}</p>
+  <p><strong>Description:</strong> {{ bookDetails.description }}</p>
+  <p><strong>Price:</strong> {{ bookDetails.price | currency }}</p>
+  <p><strong>Created At:</strong> {{ bookDetails.createdAt | date: 'medium' }}</p>
+</div>

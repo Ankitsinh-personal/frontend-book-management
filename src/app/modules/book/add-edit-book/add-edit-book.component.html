@@ -1,0 +1,38 @@
+<div class="header">
+  <span class="title">{{data ? 'Edit' : 'Add'}} Book</span>
+</div>
+<div class="main-container">
+  <form class="add-edit-form" [formGroup]="addEditBookForm">
+
+    <mat-form-field class="input-field">
+      <input matInput formControlName="bookName" placeholder="Book Name" required>
+      <mat-error *ngIf="addEditBookForm.get('bookName')?.hasError('required')">
+        {{messages.BOOK_NAME_REQUIRED}}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="input-field">
+      <input matInput formControlName="author" placeholder="Author" required>
+      <mat-error *ngIf="addEditBookForm.get('bookName')?.hasError('required')">
+        {{messages.AUTHOR_REQUIRED}}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="input-field">
+      <textarea matInput formControlName="description" placeholder="Description"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="input-field">
+      <input matInput formControlName="price" type="number" placeholder="Price" required>
+      <mat-error *ngIf="addEditBookForm.get('price')?.hasError('required')">
+        {{messages.PRICE_REQUIRED}}
+      </mat-error>
+    </mat-form-field>
+
+  </form>
+  <div class="button-class">
+    <button mat-raised-button color="primary" [disabled]="!addEditBookForm.valid" (click)="onSubmit()">{{data ? 'Edit'
+      : 'Add'}} Book</button>
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+  </div>
+</div>

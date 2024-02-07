@@ -1,0 +1,62 @@
+<div class="add-button-class">
+  <button mat-raised-button color="primary" (click)="openAddBookDialog()">
+    <mat-icon>add</mat-icon> Add New Book</button>
+</div>
+
+<table mat-table [dataSource]="bookDataSource" class="tableClass mat-elevation-z8">
+
+  <!-- Sr No -->
+  <ng-container matColumnDef="srNo">
+    <th mat-header-cell *matHeaderCellDef>Sr No</th>
+    <td mat-cell *matCellDef="let row ; let i = index">{{ i + 1 }}</td>
+  </ng-container>
+
+  <!-- Book Name Column -->
+  <ng-container matColumnDef="bookName">
+    <th mat-header-cell *matHeaderCellDef>Book Name</th>
+    <td mat-cell *matCellDef="let row">{{ row?.bookName | titlecase}}</td>
+  </ng-container>
+
+  <!-- Author Column -->
+  <ng-container matColumnDef="author">
+    <th mat-header-cell *matHeaderCellDef>Author</th>
+    <td mat-cell *matCellDef="let row">{{ row?.author | titlecase}}</td>
+  </ng-container>
+
+  <!--  Description Column -->
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef>Description</th>
+    <td mat-cell *matCellDef="let row" class="truncate-text">{{ row?.description }}</td>
+  </ng-container>
+
+  <!-- Price Column -->
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef>Price</th>
+    <td mat-cell *matCellDef="let row">{{ row?.price }}</td>
+  </ng-container>
+
+  <!-- action -->
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef>Action</th>
+    <td mat-cell *matCellDef="let row">
+      <div class="action-class">
+        <mat-icon class="edit-icon" [matTooltip]="toolTip.edit" (click)="editBookDetails(row)">edit</mat-icon>
+        <mat-icon class="delete-icon" [matTooltip]="toolTip.delete" (click)="deleteBookDetails(row)">delete</mat-icon>
+        <mat-icon class="details-icon" [matTooltip]="toolTip.details"
+          (click)="openBookDetails(row.id)">more_horiz</mat-icon>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell noData" [attr.colspan]="displayedColumns.length">
+      No data available
+    </td>
+  </tr>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 50]" [length]="totalRecords" [pageIndex]="pagination.pageIndex"
+  [pageSize]="pagination.pageSize" showFirstLastButtons (page)="pageChange($event)"></mat-paginator>

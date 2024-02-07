@@ -1,0 +1,20 @@
+<mat-sidenav-container class="mat-sidenav-container-class">
+  <mat-sidenav class="sidenav-class" #sidenav mode="side" [opened]="isSidenavOpen" *ngIf="isLoggedIn">
+    <app-sidenav></app-sidenav>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="toolbar-class" *ngIf="isLoggedIn">
+      <button mat-icon-button (click)="toggleSidenav()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Book management</span>
+      <button class="logout-button" mat-raised-button (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon> Log Out
+      </button>
+    </mat-toolbar>
+    <div style="padding: 20px;">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

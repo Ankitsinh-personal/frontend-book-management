@@ -1,0 +1,17 @@
+.content-container {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 25px;
+}
+
+.sidenav-class {
+  width: 200px;
+}
+
+.mat-sidenav-container-class {
+  height: 100%;
+}
+
+.logout-button {
+  margin-left: auto;
+}

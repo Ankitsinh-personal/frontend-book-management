@@ -1,0 +1,34 @@
+.noData {
+  font-weight: 500w;
+  text-align: center;
+}
+
+th.mat-header-cell {
+  text-wrap: nowrap;
+  padding-right: 20px;
+}
+
+td.mat-cell {
+  padding-right: 30px;
+}
+
+.truncate-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100px;
+}
+
+.action-class {
+  display: flex;
+}
+
+.edit-icon,
+.delete-icon {
+  cursor: pointer;
+  padding-right: 10px;
+}
+
+.details-icon {
+  cursor: pointer;
+}

@@ -1,0 +1,33 @@
+.add-edit-form {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+.input-field {
+  width: 100%;
+}
+
+.button-class {
+  gap: 10px;
+  display: flex;
+  justify-content: end;
+}
+
+.header {
+  background-color: #3F51B5;
+  height: 50px;
+}
+
+.main-container {
+  padding: 20px;
+}
+
+.title {
+  color: white;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+  font-size: large;
+}
